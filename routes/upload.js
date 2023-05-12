@@ -19,7 +19,7 @@ router.get('/api/v1/quicktest', async (req, res) => {
 })
 
 router.get('/api/v1/master', async (req, res) => {
-  res.send('master route')
+  res.send('master making changes in quicktest')
 })
 
 router.get('/api/v1/adhan', async (req, res) => {
