@@ -14,10 +14,6 @@ router.get('/api/v1/test', async (req, res) => {
   res.send('test route')
 })
 
-router.get('/api/v1/newtest', async (req, res) => {
-  res.send('feature branch')
-})
-
 router.get('/api/v1/adhan', async (req, res) => {
   const latitude = 31.488648
   const longitude = 74.447426
@@ -64,3 +60,5 @@ router.delete('/api/v1/delete/:photo_id', async (req, res) => {
 })
 
 module.exports = router
+
+// feature test merge
