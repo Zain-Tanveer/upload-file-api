@@ -15,7 +15,7 @@ router.get('/api/v1/test', async (req, res) => {
 })
 
 router.get('/api/v1/quicktest', async (req, res) => {
-  res.send('quick-test route')
+  res.send('making changes in quicktest branch')
 })
 
 router.get('/api/v1/master', async (req, res) => {
