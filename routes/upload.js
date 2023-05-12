@@ -18,6 +18,10 @@ router.get('/api/v1/quicktest', async (req, res) => {
   res.send('quick-test route')
 })
 
+router.get('/api/v1/master', async (req, res) => {
+  res.send('master route')
+})
+
 router.get('/api/v1/adhan', async (req, res) => {
   const latitude = 31.488648
   const longitude = 74.447426
