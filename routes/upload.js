@@ -11,7 +11,7 @@ const cloudinaryMiddleware = require('../middlewares/cloudinary')
 const Upload = require('../models/Upload_Model')
 
 router.get('/api/v1/test', async (req, res) => {
-  res.send('making changes in main')
+  res.send('making changes in feature')
 })
 
 router.get('/api/v1/quicktest', async (req, res) => {
