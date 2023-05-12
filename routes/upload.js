@@ -10,8 +10,8 @@ const upload = require('../middlewares/multer-middleware')
 const cloudinaryMiddleware = require('../middlewares/cloudinary')
 const Upload = require('../models/Upload_Model')
 
-router.get('api/v1/newtest', async (req, res) => {
-  res.send('new test route')
+router.get('/api/v1/test', async (req, res) => {
+  res.send('test route')
 })
 
 router.get('/api/v1/adhan', async (req, res) => {
