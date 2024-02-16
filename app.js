@@ -1,33 +1,29 @@
-require('dotenv').config()
-require('express-async-errors')
+require("express-async-errors");
 
-const express = require('express')
-const app = express()
+const express = require("express");
+const app = express();
+const mongoose = require("mongoose");
 
-const path = require('path')
+const uploadRouter = require("./routes/upload.routes");
 
-const connectDB = require('./database/connect')
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
 
-const uploadRouter = require('./routes/upload')
+app.use("/api/v1", uploadRouter);
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
-app.use(express.static('public'))
-
-app.use('/', uploadRouter)
-
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 5000;
 
 const start = async () => {
   try {
-    // await connectDB(process.env.MONGO_URI)
-    console.log(`Connected to DB...`)
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log(`Connected to DB...`);
     app.listen(PORT, () => {
-      console.log(`Server is listening on port ${PORT}...`)
-    })
+      console.log(`Server is listening on port ${PORT}...`);
+    });
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
+};
 
-start()
+start();
