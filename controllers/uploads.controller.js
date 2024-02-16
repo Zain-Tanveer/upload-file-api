@@ -16,14 +16,18 @@ exports.savePhoto = async (req, res) => {
 exports.deletePhoto = async (req, res) => {
   const { photo_id } = req.params;
   const photo = await Upload.findById(photo_id);
-  const result = await deleteImageFromCloudinary(photo);
+  const response = await deleteImageFromCloudinary(photo);
   if (!response.result) {
     return res
       .status(400)
-      .json({ success: false, message: "Something went wrong", error: result });
+      .json({
+        success: false,
+        message: "Something went wrong",
+        error: response,
+      });
   }
 
   const deletedPhoto = await Upload.findByIdAndDelete(photo_id);
 
-  res.status(200).json({ result, deletedPhoto });
+  res.status(200).json({ response, deletedPhoto });
 };
